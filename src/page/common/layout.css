@@ -31,7 +31,22 @@ label, input[type = 'checkbox']{
 	position: relative;
 	overflow: hidden;
 }
-
+.panel{
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #fff;
+}
+.panel .panel-title{
+	padding:10px;
+	font-size:14px;
+	color: #666;
+	font-weight: bold;
+	border-bottom: 1px solid #eee;
+}
+.panel .panel-body{
+	padding: 10px;
+	overflow: hidden;
+}
 .large .w{
 	width:1680px;
 }
@@ -40,6 +55,8 @@ label, input[type = 'checkbox']{
 .hide{
 	display: none;
 }
+
+
 
 /* 超链接样式 */
 .link{
@@ -57,7 +74,7 @@ label, input[type = 'checkbox']{
 
 .btn{
 	display: inline-block;
-	padding: 0;
+	padding: 0 20px;
 	height:40px;
 	line-height: 40px;
 	vertical-align: middle;

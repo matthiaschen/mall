@@ -54,22 +54,22 @@ var _cm = {
         alert(msg||'操作失败');
     },
     //表单验证
-    // validata: function(value, type){
-    //     var value = $.trim(value);
-    //     //非空验证
-    //     if ('require' === type) {
-    //         return !!value
-    //     };
-    //     //手机验证
-    //     if ('phone' === type){
-    //         return /^1\d{10}$/.test(value);
-    //     };
-    //     // 邮箱验证
-    //     if('email' === type){
-    //         return /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(value);
-    //     }
-    // }
-    // // 统一登录处理
+    validate: function(value, type){
+        var value = $.trim(value);
+        //非空验证
+        if ('require' === type) {
+            return !!value
+        };
+        //手机验证
+        if ('phone' === type){
+            return /^1\d{10}$/.test(value);
+        };
+        // 邮箱验证
+        if('email' === type){
+            return /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(value);
+        }
+    },
+    // 统一登录处理
     doLogin : function(){
         window.location.href = './user-login.html?redirect=' + encodeURIComponent(window.location.href);
     } , 
