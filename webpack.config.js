@@ -28,13 +28,15 @@ var config = {
         'order-confirm'     : ['./src/page/order-confirm/index.js'],
         'order-list'     : ['./src/page/order-list/index.js'],
         'order-detail'     : ['./src/page/order-detail/index.js'],
+        'payment'     : ['./src/page/payment/index.js'],
+
         'user-login'       : ['./src/page/user-login/index.js'],
         'result'          : ['./src/page/result/index.js'],
         'user-register'    : ['./src/page/user-register/index.js'],
-         'user-pass-reset'  : ['./src/page/user-pass-reset/index.js'],
-          'user-center'     : ['./src/page/user-center/index.js'],
-         'user-center-update' : ['./src/page/user-center-update/index.js'],
-          'user-pass-update' : ['./src/page/user-pass-update/index.js']
+        'user-pass-reset'  : ['./src/page/user-pass-reset/index.js'],
+        'user-center'     : ['./src/page/user-center/index.js'],
+        'user-center-update' : ['./src/page/user-center-update/index.js'],
+        'user-pass-update' : ['./src/page/user-pass-update/index.js']
     },
     output: {
         path: './dist',
@@ -46,9 +48,9 @@ var config = {
     },
     module: {
         loaders: [
-            { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader","css-loader") },
-            { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' },
-            { test: /\.string$/, loader:'html-loader' }
+        { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader","css-loader") },
+        { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' },
+        { test: /\.string$/, loader:'html-loader' }
         ]
     },
     resolve : {
@@ -82,12 +84,13 @@ var config = {
         new HtmlWebpackPlugin(getHtmlConfig('cart', '购物车')),
         new HtmlWebpackPlugin(getHtmlConfig('order-confirm', '订单确认页')),
         new HtmlWebpackPlugin(getHtmlConfig('order-list', '订单列表')),
-        new HtmlWebpackPlugin(getHtmlConfig('order-detail', '订单详情'))
-    ]
-};
+        new HtmlWebpackPlugin(getHtmlConfig('order-detail', '订单详情')),
+        new HtmlWebpackPlugin(getHtmlConfig('payment', '订单支付'))
+        ]
+    };
 
-if('dev' === WEBPACK_ENV){
-    config.entry.common.push('webpack-dev-server/client?http://localhost:8088/');
-}
+    if('dev' === WEBPACK_ENV){
+        config.entry.common.push('webpack-dev-server/client?http://localhost:8088/');
+    }
 
-module.exports = config;
+    module.exports = config;
