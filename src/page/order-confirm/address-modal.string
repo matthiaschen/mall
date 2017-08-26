@@ -1,0 +1,49 @@
+	<div class="modal close">
+		<!-- modal 是一个模板，modal-contain才是容器 -->
+			<div class="modal-contain">
+				<div class="modal-header">
+				{{#isUpdate}}
+					<h1 class="modal-title">更新地址</h1>
+					<i class="fa fa-close close"></i>
+				{{/isUpdate}}
+				{{^isUpdate}}
+					<h1 class="modal-title">使用新地址</h1>
+					<i class="fa fa-close close"></i>
+				{{/isUpdate}}
+				</div>
+				<div class="modal-body">
+					<div class="form">
+						<div class="form-line">
+							<label class="label" for="receiver-name">
+								<span class="required">*</span  >收件人姓名:</label>
+								<input type="text" class = "form-item" id="receiver-name" placeholder = "请输入收件人姓名" value = "{{data.receiverName}}"/>
+							</div>
+						<div class="form-line">
+							<label class="label" for="receiver-province"><span class="required">*</span>所在城市:</label>
+							<select name="" id="receiver-province" class="form-item">
+							<option value="">请选择</option>
+							</select>
+							<select name="" id="receiver-city" class="form-item">
+								<option value="">请选择</option>
+							</select>
+						</div>
+						<div class="form-line">
+							<label class="label" for="receiver-address"><span class="required">*</span>详细地址:</label>
+							<input type="text" class = "form-item" id="receiver-address" placeholder = "请输入详细地址" value ="{{data.receiverAddress}}">
+						</div>
+						<div class="form-line">
+							<label class="label" for="receiver-phone"><span class="required">*</span>收件人手机:</label>
+							<input type="text" class = "form-item" id="receiver-phone" placeholder = "请输入手机人手机" value = "{{data.receiverPhone}}">
+						</div>
+						<div class="form-line" for = "receiver-zip">
+							<label class="label">邮政编码:</label>
+							<input type="text" class = "form-item" id="receiver-zip" placeholder = "请输入邮政编码" value = "{{data.receiverZip}}">
+						</div>
+						<div class="form-line">
+						<input type="hidden" id = 'receiver-id' value = "{{data.id}}" >
+							<div class="btn address-btn">保存收货地址</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

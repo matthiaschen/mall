@@ -5,7 +5,7 @@ require('page/common/nav/index.js');
 require('page/common/header/index.js');
 var _cm = require('util/cm.js');
 var _product = require('service/product-service.js');
-var cart = require('service/cart-service.js');
+var _cart = require('service/cart-service.js');
 var templateIndex = require('./index.string');
 var page = {
 	data:{
@@ -18,13 +18,22 @@ var page = {
 	onLoad: function(){
 		if(!this.data.productId){
 			_cm.goHome;
-
 		}
 		this.loadDetail();
 	},
 
 	bindEvent: function(){
-
+		var that = this;
+		 $(document).on('click', '.cart-add', function(){
+            _cart.addToCart({
+                productId   : that.data.productId,
+                count       : $('.p-count').val()
+            }, function(res){
+                window.location.href = './result.html?type=cart-add';
+            }, function( errMsg){
+               _cm.errorTips(errMsg);
+            });
+        });
 	},
 	loadDetail:function(){
 		var that =this;

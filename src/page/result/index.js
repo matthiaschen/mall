@@ -7,5 +7,6 @@ var _cm = require('util/cm.js');
 
 $(function(){
 	var type = _cm.getUrlParam('type') || 'default',
-		$element = $('.' + type + '-success').show();
+		$element = $('.' + type + '-success');
+		$element.show()
 }) 
